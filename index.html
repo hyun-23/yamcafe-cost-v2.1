@@ -86,7 +86,8 @@
       <button onclick="switchTab('recipes-view')" id="tab-recipes-view" class="tab-btn active px-4 py-2.5 text-sm font-semibold rounded-lg transition flex items-center gap-2 whitespace-nowrap bg-amber-100 text-amber-900">
         <i class="fa-solid fa-book-open text-amber-800"></i> 📖 전체 메뉴 레시피
       </button>
-      <button onclick="switchTab('recipe-editor')" id="tab-recipe-editor" class="tab-btn px-4 py-2.5 text-sm font-semibold rounded-lg transition flex items-center gap-2 text-slate-600 hover:bg-slate-100 whitespace-nowrap">
+      <!-- 💡 탭 클릭 시 무조건 백지 상태로 신규 등록 폼이 열리도록 openNewRecipeModal 연동 -->
+      <button onclick="openNewRecipeModal()" id="tab-recipe-editor" class="tab-btn px-4 py-2.5 text-sm font-semibold rounded-lg transition flex items-center gap-2 text-slate-600 hover:bg-slate-100 whitespace-nowrap">
         <i class="fa-solid fa-calculator"></i> 레시피 신규 작성
       </button>
       <button onclick="switchTab('sub-recipes')" id="tab-sub-recipes" class="tab-btn px-4 py-2.5 text-sm font-semibold rounded-lg transition flex items-center gap-2 text-slate-600 hover:bg-slate-100 whitespace-nowrap">
@@ -1846,8 +1847,8 @@
       document.getElementById('recipe-order').value = menus.length;
       document.getElementById('recipe-name').value = '';
       document.getElementById('recipe-category').value = '커피';
-      document.getElementById('recipe-price').value = 5000;
-      document.getElementById('recipe-delivery-price').value = 5500;
+      document.getElementById('recipe-price').value = '';
+      document.getElementById('recipe-delivery-price').value = '';
       document.getElementById('recipe-rows-body').innerHTML = '';
       addRecipeRow();
       switchTab('recipe-editor');
